@@ -1,7 +1,7 @@
-function ItemListContainer () {
+function ItemListContainer ({children}) {
     return (
-        <div>
-            Item List
+        <div style={{backgroundColor: "#EDEDED", color: "red"}}>
+            {children}
         </div>
     )
 }

@@ -11,7 +11,9 @@ function App() {
       <header>
         <NavBar></NavBar>
       </header>
-      <ItemListContainer></ItemListContainer>
+      <ItemListContainer>
+        <p>Inserte su texto AQUI!!!!</p>
+      </ItemListContainer>
     </div>
   );
 }
