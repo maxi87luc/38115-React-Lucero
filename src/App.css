@@ -1,0 +1,9 @@
+.navBar {
+  display: flex;
+  background-color: #EDEDED;
+}
+
+.cartIcon {
+  height: 50px;
+  width: 50px;
+}
