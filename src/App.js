@@ -11,8 +11,8 @@ function App() {
       <header>
         <NavBar></NavBar>
       </header>
-      <ItemListContainer>
-        <p>Inserte su texto AQUI!!!!</p>
+      <ItemListContainer greeting="Inserte su texto aqui">
+        <p/>
       </ItemListContainer>
     </div>
   );

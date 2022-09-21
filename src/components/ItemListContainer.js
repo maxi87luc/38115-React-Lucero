@@ -1,8 +1,7 @@
-function ItemListContainer ({children}) {
+function ItemListContainer ({greeting}) {
     return (
-        <div style={{backgroundColor: "#EDEDED", color: "red"}}>
-            {children}
-        </div>
+        <p className="p-ItemListContainer">{greeting}</p>
+         
     )
 }
 
