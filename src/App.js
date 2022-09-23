@@ -3,6 +3,7 @@ import './App.css';
 import NavBar from './components/NavBar';
 import ItemListContainer from './components/ItemListContainer'
 
+
 function App() {
 
   
@@ -11,9 +12,11 @@ function App() {
       <header>
         <NavBar></NavBar>
       </header>
-      <ItemListContainer greeting="Inserte su texto aqui">
-        <p/>
-      </ItemListContainer>
+      <ItemListContainer greeting="Inserte su texto aqui"/>
+        
+        
+              
+      
     </div>
   );
 }
