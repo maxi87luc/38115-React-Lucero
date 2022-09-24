@@ -4,6 +4,7 @@ import NavBar from './components/NavBar';
 import ItemListContainer from './components/ItemListContainer'
 
 
+
 function App() {
 
   
@@ -12,7 +13,7 @@ function App() {
       <header>
         <NavBar></NavBar>
       </header>
-      <ItemListContainer greeting="Inserte su texto aqui"/>
+      <ItemListContainer greeting={{material: "Caucho", genero: "hombre"}} />
         
         
               

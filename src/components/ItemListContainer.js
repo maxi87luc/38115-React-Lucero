@@ -1,11 +1,17 @@
-import ItemCount from './ItemCount'
-
+import ItemList from './ItemList'
+import '../data/items'
+import items from '../data/items';
 function ItemListContainer ({greeting}) {
+    let material = greeting.material
+    let genero = greeting.genero
+    
+    const arrayFiltrado = (items.filter(modelo => modelo.material === material && modelo.genero === genero))
+
+    console.log(arrayFiltrado)
     return (
-        <div className="ItemListContainer">
-            <ItemCount stock={5} initial={0} addOn={1} />
+        <div className="ItemListContainer ">
             
-            <p className="p-ItemListContainer">{greeting}</p>
+            <ItemList items={arrayFiltrado} />           
             
         </div> 
     )

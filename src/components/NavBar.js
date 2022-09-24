@@ -30,6 +30,15 @@ function NavBar () {
                                 <li><a class="dropdown-item" href="#">Dama</a></li>                      
                             </ul>
                             </li>
+                            <li className="nav-item dropdown">
+                            <a className="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Suelas EVA-Caucho 
+                            </a>
+                            <ul className="dropdown-menu">
+                                <li><a class="dropdown-item" href="#">Hombre</a></li>
+                                <li><a class="dropdown-item" href="#">Dama</a></li>                      
+                            </ul>
+                            </li>
                             
                         </ul>
                         <CartWidget/>
