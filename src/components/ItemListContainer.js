@@ -9,7 +9,7 @@ function ItemListContainer ({greeting}) {
 
     console.log(arrayFiltrado)
     return (
-        <div className="ItemListContainer ">
+        <div className="ItemListContainer  ">
             
             <ItemList items={arrayFiltrado} />           
             

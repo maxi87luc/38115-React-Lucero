@@ -12,7 +12,7 @@ function Item ({id}){
 
 
     return (
-        <li className="card" style={{ width: "18rem"}}>
+        <li className="card col-5" style={{ width: "18rem"}}>
             <img src={imageURL} className="card-img-top" alt=""></img>
             <div class="card-body">
                 <h5 className="card-title">{id.id}</h5>  
