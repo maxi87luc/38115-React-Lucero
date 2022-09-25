@@ -1,6 +1,6 @@
 
 
-let itemsJSON = [
+let items = [
   {
       "id": "Sharon",
       "material": "EVA",
@@ -992,8 +992,24 @@ let itemsJSON = [
   }
 ]
 
-let items = itemsJSON
+function fetchData(material, genero){
+    const data = new Promise((resolve, reject)=>{
+        if(material&&genero){
+            setTimeout(()=>{
+                resolve(items.filter(modelo => modelo.material === material && modelo.genero === genero))
+            }, 2000);
+        
 
-export default items
+        } else {
+            setTimeout(()=>{
+                reject({error: "error en resolver"})
+            }, 2000)
+        }
 
-console.log("desde items.js "+ items)
+    })
+    return data
+}
+
+
+export default fetchData
+

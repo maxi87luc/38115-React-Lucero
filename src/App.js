@@ -13,7 +13,7 @@ function App() {
       <header>
         <NavBar></NavBar>
       </header>
-      <ItemListContainer greeting={{material: "Caucho", genero: "hombre"}} />
+      <ItemListContainer greeting={{material: "EVA", genero: "dama"}} />
         
         
               

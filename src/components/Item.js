@@ -1,4 +1,4 @@
-import items from  '../data/items.js';
+
 
 
 function Item ({id}){
@@ -33,3 +33,5 @@ function Item ({id}){
 }
 
 export default Item
+
+

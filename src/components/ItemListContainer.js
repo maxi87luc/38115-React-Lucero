@@ -1,17 +1,25 @@
 import ItemList from './ItemList'
-import '../data/items'
-import items from '../data/items';
+import fetchData from '../data/items';
+import {useState , useEffect} from 'react'
+
 function ItemListContainer ({greeting}) {
     let material = greeting.material
     let genero = greeting.genero
-    
-    const arrayFiltrado = (items.filter(modelo => modelo.material === material && modelo.genero === genero))
 
-    console.log(arrayFiltrado)
+    const [state, setState] = useState([])
+    useEffect(()=>{
+        fetchData(material, genero).then((value)=>{ 
+            setState(value)
+        })
+    })
+    
+    
+
+    console.log(state)
     return (
         <div className="ItemListContainer  ">
             
-            <ItemList items={arrayFiltrado} />           
+            <ItemList items={state} />           
             
         </div> 
     )
