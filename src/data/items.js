@@ -115,25 +115,7 @@ let items = [
           ""
       ]
   },
-  {
-      "id": "Jacinta",
-      "material": "EVA",
-      "genero": "dama",
-      "talles": [
-          "35",
-          "36",
-          "37",
-          "38",
-          "39",
-          "40",
-          "",
-          "",
-          "",
-          "",
-          "",
-          ""
-      ]
-  },
+  
   {
       "id": "Jasmine",
       "material": "EVA",
@@ -154,7 +136,7 @@ let items = [
       ]
   },
   {
-      "id": "Liberti dama",
+      "id": "Liberty dama",
       "material": "EVA",
       "genero": "dama",
       "talles": [
@@ -172,25 +154,7 @@ let items = [
           ""
       ]
   },
-  {
-      "id": "Kali",
-      "material": "EVA",
-      "genero": "dama",
-      "talles": [
-          "35",
-          "36",
-          "37",
-          "38",
-          "39",
-          "40",
-          "",
-          "",
-          "",
-          "",
-          "",
-          ""
-      ]
-  },
+ 
   {
       "id": "Malva",
       "material": "EVA",
@@ -248,25 +212,7 @@ let items = [
           ""
       ]
   },
-  {
-      "id": "Bruce",
-      "material": "EVA",
-      "genero": "hombre",
-      "talles": [
-          "39",
-          "40",
-          "41",
-          "42",
-          "43",
-          "44",
-          "45",
-          "",
-          "",
-          "",
-          "",
-          ""
-      ]
-  },
+ 
   {
       "id": "Bruno",
       "material": "EVA",

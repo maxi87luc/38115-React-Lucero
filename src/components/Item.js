@@ -1,25 +1,28 @@
 
+import Carrousel from './Carrousel'
 
-
-function Item ({id}){
+function Item ({modelo}){
 
     
-    let imageURL 
+    const suelasPNG = require.context('../multimedia/images/suelasPNG') 
     
-  
+    const urlImage1 = suelasPNG(`./${ modelo.id }1.png`)
+    const urlImage2 = suelasPNG(`./${ modelo.id }2.png`)
 
-    console.log(id)
+    
+    
+
 
 
     return (
         <li className="card col-5" style={{ width: "18rem"}}>
-            <img src={imageURL} className="card-img-top" alt=""></img>
+            <Carrousel url1={urlImage1} url2={urlImage2} id={modelo.id}/>
             <div class="card-body">
-                <h5 className="card-title">{id.id}</h5>  
+                <h5 className="card-title">{modelo.id}</h5>  
                 <p>                  
-                   Material: {id.material}
+                   Material: {modelo.material}
                 </p>
-                <p>Curva: {id.genero} </p>
+                <p>Curva: {modelo.genero} </p>
                 
 
 
