@@ -938,12 +938,16 @@ let items = [
   }
 ]
 
-function fetchData(material, genero){
+export function fetchData(material, genero){
+    
     const data = new Promise((resolve, reject)=>{
+
         if(material&&genero){
             setTimeout(()=>{
                 resolve(items.filter(modelo => modelo.material === material && modelo.genero === genero))
             }, 2000);
+            ;
+
         
 
         } else {
@@ -951,11 +955,63 @@ function fetchData(material, genero){
                 reject({error: "error en resolver"})
             }, 2000)
         }
-
+        
     })
+    
     return data
+     
 }
 
 
-export default fetchData
+
+
+export function fetchItemData(id){
+    const ItemData = new Promise((resolve, reject)=>{
+
+        if(id){
+            setTimeout(()=>{
+                resolve(items.find(modelo => modelo.id=== id))
+            }, 2000);
+            ;
+
+        
+
+        } else {
+            setTimeout(()=>{
+                reject({error: "error en resolver"})
+            }, 2000)
+        }
+        
+    })
+    
+    return ItemData
+     
+}
+
+export function fullData(){
+    
+    const data = new Promise((resolve, reject)=>{
+
+        if(items!==null){
+            setTimeout(()=>
+                resolve(items), 2000);
+          ;
+
+        
+
+        } else {
+            setTimeout(()=>{
+                reject({error: "error en resolver"})
+            }, 2000)
+        }
+        
+    })
+    
+    return data
+     
+}
+
+
+
+
 

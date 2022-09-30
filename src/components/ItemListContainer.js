@@ -1,6 +1,7 @@
 import ItemList from './ItemList'
-import fetchData from '../data/items';
+import {fetchData} from '../data/items';
 import {useState , useEffect} from 'react'
+import NoHayElementos from './NoHayElementos';
 
 function ItemListContainer ({greeting}) {
     let material = greeting.material
@@ -12,15 +13,14 @@ function ItemListContainer ({greeting}) {
             setState(value)
         })
     })
+    console.log(state)
     
     
 
-    console.log(state)
+    
     return (
-        <div className="ItemListContainer  ">
-            
-            <ItemList items={state} />           
-            
+        <div className="ItemListContainer">            
+            {state.length>0?<ItemList items={state}/>:<NoHayElementos/>}             
         </div> 
     )
 }
