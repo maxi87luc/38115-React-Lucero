@@ -1,5 +1,5 @@
 
-import Carrousel from './Carrousel';
+import Carrousel from './Carousel';
 import ItemCount from './ItemCount';
 
 

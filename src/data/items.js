@@ -1012,7 +1012,7 @@ export function fullData(){
     
     const data = new Promise((resolve, reject)=>{
 
-        if(items!==null){
+        if(items){
             setTimeout(()=>
                 resolve(items), 2000);
           ;

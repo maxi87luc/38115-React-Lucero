@@ -1,21 +1,17 @@
-import {fullData} from '../data/items';
-import {useState , useEffect} from 'react'
-import ItemList from './ItemList'
+
+import IDSFabrica from '../multimedia/images/IDSFabrica.jpg'
+
+
 
 
 function Home (){
-    const [state, setState] = useState([])
-    useEffect(()=>{
-        fullData().then((value)=>{ 
-            setState(value)
-            console.log(value)
-        })
-    })
-    console.log(state)
+   
 
     return (
-        <div className="ItemListContainer">            
-            <ItemList items={state}/>            
+        <div className="Home">    
+            <center>        
+                <img src={IDSFabrica}  alt="logo" />
+            </center>
         </div>
     )
 }

@@ -7,6 +7,7 @@ import Home from './components/Home'
 
 
 
+
 function App() {
 
   
@@ -15,7 +16,7 @@ function App() {
       <NavBar/>
       <Routes>
         <Route exact path='/'  element={
-          <ItemListContainer/>
+          <Home/>
         } />
         <Route exact path='/category/:material/:genero' element={
           <ItemListContainer/>

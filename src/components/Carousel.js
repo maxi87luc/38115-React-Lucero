@@ -1,4 +1,4 @@
-function Carrousel ({id, url1, url2}) {
+function Carousel ({id, url1, url2}) {
 
     const dataBsTarget = "#"+id;
 
@@ -28,4 +28,4 @@ function Carrousel ({id, url1, url2}) {
     )
 }
 
-export default Carrousel
+export default Carousel

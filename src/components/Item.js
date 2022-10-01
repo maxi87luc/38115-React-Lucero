@@ -1,5 +1,5 @@
 
-import Carrousel from './Carrousel'
+import Carousel from './Carousel'
 import {NavLink} from 'react-router-dom'
 
 function Item ({modelo}){
@@ -18,7 +18,7 @@ function Item ({modelo}){
     return (
         <li className="card col-5" key={modelo.id} style={{ width: "18rem"}}>
             <center>
-                <Carrousel url1={urlImage1} url2={urlImage2} id={modelo.id}/>
+                <Carousel url1={urlImage1} url2={urlImage2} id={modelo.id}/>
                 <div class="card-body ">
                     <h5 className="card-title">{modelo.id}</h5>  
                     <p>                  

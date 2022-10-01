@@ -118,4 +118,16 @@
   padding: auto;
 }
 
+.Home {
+  background-color: #EDEDED;
+  background-image: url(./multimedia/images/fabrica.png);
+  
+  background-size: cover;
+}
+.Home img {
+  width: 60%;
+  padding-top: 5%;
+  
+}
+
 
