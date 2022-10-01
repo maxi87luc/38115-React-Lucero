@@ -15,27 +15,13 @@ function App() {
       <NavBar/>
       <Routes>
         <Route exact path='/'  element={
-          <Home/>
+          <ItemListContainer/>
         } />
-        <Route exact path='/EVA/Dama' element={
-          <ItemListContainer greeting={{material: "EVA", genero: "dama"}}/>
+        <Route exact path='/category/:material/:genero' element={
+          <ItemListContainer/>
         } />
-        <Route exact path='/EVA/Hombre' element={
-          <ItemListContainer greeting={{material: "EVA", genero: "hombre"}}/>
-        } />
-        <Route exact path='/Caucho/Dama' element={
-          <ItemListContainer greeting={{material: "Caucho", genero: "dama"}}/>
-        } />
-        <Route exact path='/Caucho/Hombre' element={
-          <ItemListContainer greeting={{material: "Caucho", genero: "hombre"}}/>
-        } />
-        <Route exact path='/EVA-Caucho/Dama' element={
-          <ItemListContainer greeting={{material: "EVA-Caucho", genero: "dama"}}/>
-        } />
-        <Route exact path='/EVA-Caucho/Hombre' element={
-          <ItemListContainer greeting={{material: "EVA-Caucho", genero: "hombre"}}/>
-        } />
-        <Route exact path='/:id' element={
+     
+        <Route exact path='/item/:id' element={
           <ItemDetailContainer/>
         } />
           

@@ -97,6 +97,25 @@ let items = [
       ]
   },
   {
+    "id": "Denise",
+    "material": "Caucho",
+    "genero": "dama",
+    "talles": [
+        "35",
+        "36",
+        "37",
+        "38",
+        "39",
+        "40",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+    ]
+},
+  {
       "id": "Elisa",
       "material": "EVA",
       "genero": "dama",
@@ -251,25 +270,7 @@ let items = [
           ""
       ]
   },
-  {
-      "id": "Cedro",
-      "material": "EVA",
-      "genero": "hombre",
-      "talles": [
-          "39",
-          "40",
-          "41",
-          "42",
-          "43",
-          "44",
-          "45",
-          "",
-          "",
-          "",
-          "",
-          ""
-      ]
-  },
+  
   {
       "id": "Danilo",
       "material": "EVA",
@@ -860,6 +861,25 @@ let items = [
           ""
       ]
   },
+  {
+    "id": "Brava",
+    "material": "EVA-Caucho",
+    "genero": "dama",
+    "talles": [
+        "35",
+        "36",
+        "37",
+        "38",
+        "39",
+        "40",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+    ]
+},
   {
       "id": "Derek",
       "material": "EVA-Caucho",

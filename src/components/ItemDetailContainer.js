@@ -1,4 +1,4 @@
-// import ItemDetail from './ItemItemDetail'
+
 import {fetchItemData} from '../data/items';
 import {useState , useEffect} from 'react'
 import { useParams } from 'react-router-dom';

@@ -30,7 +30,7 @@ function Item ({modelo}){
 
                     
                                 
-                    <NavLink to={`/${modelo.id}`}><button class="btn btn-primary">Armar Pedido</button></NavLink>
+                    <NavLink to={`/item/${modelo.id}`}><button class="btn btn-primary">Armar Pedido</button></NavLink>
                 </div>
             </center>
         </li>

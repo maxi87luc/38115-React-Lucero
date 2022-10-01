@@ -18,8 +18,8 @@ function NavBar () {
                                     Suelas EVA
                                 </a>
                                 <ul className="dropdown-menu">
-                                    <li><a class="dropdown-item"><NavLink to={`/EVA/hombre`}>Hombre</NavLink> </a></li>
-                                    <li><a class="dropdown-item"><NavLink to={`/EVA/dama`}>Dama</NavLink> </a></li>                      
+                                    <li><a class="dropdown-item"><NavLink to={`/category/EVA/hombre`}>Hombre</NavLink> </a></li>
+                                    <li><a class="dropdown-item"><NavLink to={`/category/EVA/dama`}>Dama</NavLink> </a></li>                      
                                 </ul>
                             </li>
                             <li className="nav-item dropdown">
@@ -27,8 +27,8 @@ function NavBar () {
                                     Suelas Caucho 
                                 </a>
                                 <ul className="dropdown-menu">
-                                    <li><a class="dropdown-item"><NavLink to={`/Caucho/hombre`}>Hombre</NavLink> </a></li>
-                                    <li><a class="dropdown-item"><NavLink to={`/Caucho/dama`}>Dama</NavLink> </a></li>                    
+                                    <li><a class="dropdown-item"><NavLink to={`/category/Caucho/hombre`}>Hombre</NavLink> </a></li>
+                                    <li><a class="dropdown-item"><NavLink to={`/category/Caucho/dama`}>Dama</NavLink> </a></li>                    
                                 </ul>
                             </li>
                             <li className="nav-item dropdown">
@@ -36,8 +36,8 @@ function NavBar () {
                                     Suelas EVA-Caucho 
                                 </a>
                                 <ul className="dropdown-menu">
-                                    <li><a class="dropdown-item"><NavLink to={`/EVA-Caucho/hombre`}>Hombre</NavLink> </a></li>
-                                    <li><a class="dropdown-item"><NavLink to={`/EVA-Caucho/dama`}>Dama</NavLink> </a></li>                     
+                                    <li><a class="dropdown-item"><NavLink to={`/category/EVA-Caucho/hombre`}>Hombre</NavLink> </a></li>
+                                    <li><a class="dropdown-item"><NavLink to={`/category/EVA-Caucho/dama`}>Dama</NavLink> </a></li>                     
                                 </ul>
                             </li>
                             
@@ -61,8 +61,8 @@ function NavBar () {
                                     Suelas EVA
                                     </a>
                                 <ul className="dropdown-menu">
-                                    <li><a class="dropdown-item" href="#">Hombre</a></li>
-                                    <li><a class="dropdown-item" href="#">Dama</a></li>                      
+                                    <li><a class="dropdown-item"><NavLink to={`/category/EVA/hombre`}>Hombre</NavLink> </a></li>
+                                    <li><a class="dropdown-item"><NavLink to={`/category/EVA/dama`}>Dama</NavLink> </a></li>                        
                                 </ul>
                                 </li>
                                 <li className="nav-item dropdown">
@@ -70,8 +70,8 @@ function NavBar () {
                                     Suelas Caucho 
                                 </a>
                                 <ul className="dropdown-menu">
-                                    <li><a class="dropdown-item" href="#">Hombre</a></li>
-                                    <li><a class="dropdown-item" href="#">Dama</a></li>                      
+                                    <li><a class="dropdown-item"><NavLink to={`/category/Caucho/hombre`}>Hombre</NavLink> </a></li>
+                                    <li><a class="dropdown-item"><NavLink to={`/category/Caucho/dama`}>Dama</NavLink> </a></li>                         
                                 </ul>
                                 </li>
                                 <li className="nav-item dropdown">
@@ -79,9 +79,9 @@ function NavBar () {
                                     Suelas EVA-Caucho 
                                 </a>
                                 <ul className="dropdown-menu">
-                                    <li><a class="dropdown-item" href="#">Hombre</a></li>
-                                    <li><a class="dropdown-item" href="#">Dama</a></li>                      
-                            </ul>
+                                    <li><a class="dropdown-item"><NavLink to={`/category/EVA-Caucho/hombre`}>Hombre</NavLink> </a></li>
+                                    <li><a class="dropdown-item"><NavLink to={`/category/EVA-Caucho/dama`}>Dama</NavLink> </a></li>                       
+                                </ul>
                             </li>
                             
                         </ul>

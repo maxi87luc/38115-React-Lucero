@@ -2,10 +2,10 @@ import ItemList from './ItemList'
 import {fetchData} from '../data/items';
 import {useState , useEffect} from 'react'
 import NoHayElementos from './NoHayElementos';
+import { useParams } from 'react-router-dom';
 
-function ItemListContainer ({greeting}) {
-    let material = greeting.material
-    let genero = greeting.genero
+function ItemListContainer () {
+    let {material, genero} = useParams();
 
     const [state, setState] = useState([])
     useEffect(()=>{
