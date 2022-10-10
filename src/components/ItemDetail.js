@@ -1,7 +1,8 @@
 
 import Carrousel from './Carousel';
 import ItemCount from './ItemCount';
-
+import {NavLink} from 'react-router-dom';
+import {useState, useEffect} from "react"
 
 
 
@@ -11,10 +12,31 @@ import ItemCount from './ItemCount';
 
 function ItemDetail ({modelo}) {
 
+    const [pedido, setPedido] = useState([])
+
     const talles = modelo.talles.filter(talle=>talle!=="")
     const suelasPNG = require.context('../multimedia/images/suelasPNG') 
     const urlImage1 = suelasPNG(`./${ modelo.id }1.png`)
-    const urlImage2 = suelasPNG(`./${ modelo.id }2.png`)
+    const urlImage2 = suelasPNG(`./${ modelo.id }2.png`)  
+      
+        
+   
+    const sumarItem = (talle, cantidad) => {        
+
+        
+        const newItem = {talle: talle, cantidad: cantidad}   
+        console.log(pedido)
+        
+        if (pedido.find(o => o.talle === newItem.talle)) {
+            const itemFind = pedido.find(o => o.talle === newItem.talle )
+            itemFind.cantidad = cantidad
+            
+        } else {
+            setPedido([...pedido, newItem])
+        }
+    } 
+
+    
 
     return (
         <div className="row">
@@ -32,10 +54,10 @@ function ItemDetail ({modelo}) {
                 
 
                     <ul className="tallesList container">            
-                        {talles.map((talle)=><li className="row talleList "><p className="col-4 talleItemCount">{talle}</p> <ItemCount stock={10} addOn={1} initial={0}  /></li>)}
+                        {talles.map((talle)=><li className="row talleList "><p className="col-4 talleItemCount">{talle}</p> <ItemCount stock={10} onAdd={sumarItem} initial={0} talle={talle} /></li>)}
                     </ul> 
                                                       
-                <a href="#" class="btn btn-primary">Agregar a Carrito</a>
+                <center><NavLink to="/cart"><button class="btn btn-primary">Agregar a Carrito</button></NavLink></center>
             </div>
         </div>
     )

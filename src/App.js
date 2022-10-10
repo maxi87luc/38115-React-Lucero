@@ -4,6 +4,7 @@ import NavBar from './components/NavBar';
 import ItemListContainer from './components/ItemListContainer'
 import ItemDetailContainer from './components/ItemDetailContainer';
 import Home from './components/Home'
+import Cart from './components/Cart'
 
 
 
@@ -13,18 +14,34 @@ function App() {
   
   return (
     <Router>
-      <NavBar/>
+      
+      
       <Routes>
         <Route exact path='/'  element={
-          <Home/>
+          <>
+            <NavBar/>
+            <Home/>
+          </>
         } />
         <Route exact path='/category/:material/:genero' element={
-          <ItemListContainer/>
+          <>
+            <NavBar/>
+            <ItemListContainer/>
+          </>
         } />
      
         <Route exact path='/item/:id' element={
-          <ItemDetailContainer/>
+          <>
+            <NavBar/>
+            <ItemDetailContainer/>
+          </>
         } />
+
+        <Route exact path='/cart' element={
+          <Cart/>
+        } />
+
+      
           
       </Routes>
     </Router>
@@ -37,14 +54,4 @@ export default App;
 
 
 
-// function App() {
-//   return (
-//     <div className="App">      
-//       <header>
-//         <NavBar/>
-//       </header>     
-//     </div>
-//   );
-// }
 
-// export default App;

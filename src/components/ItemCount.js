@@ -6,21 +6,28 @@ import {useState} from "react"
 
 
 
-function ItemCount ({stock, initial, addOn}) {
+function ItemCount ({stock, initial, onAdd, talle}) {
     
+    const restarItem = (talle, count)=>{
+        setCount(count-1)
+        onAdd(talle, count-1)
+    }
+    const sumarItem = (talle, count)=>{
+        setCount(count+1)
+        onAdd(talle, count+1)
+    }
+ 
 
     const [count, setCount] = useState(initial)
     return (
-        <div className="ItemCount col-8">
+        <div key={talle} className="ItemCount col-8">
             
-            <img src={BotonMenos}  type="button" onClick={()=>{count > 0 && setCount(count-addOn)}} className={count===0?"botonItemCount opacity": "botonItemCount"} alt="boton-"/>                    
+            <img src={BotonMenos} type="button" onClick={()=>{count > 0 && restarItem(talle, count) }} className={count===0?"botonItemCount opacity": "botonItemCount"} alt="boton-"/>                    
             
             <Components.p clase="textCount" text={count}/>
 
-            <img src={BotonMas}  type="button" onClick={()=>{count < stock && setCount(count+addOn)}} className={count===stock?"botonItemCount opacity": "botonItemCount"} alt="boton+"  />
-{/* 
-            <Components.p text={"stock disponible: "}/>
-            <Components.p text={stock}/> */}
+            <img src={BotonMas}  type="button" onClick={()=>{count < stock && sumarItem(talle, count)}} className={count===stock?"botonItemCount opacity": "botonItemCount"} alt="boton+"  />
+
             
             
         </div>
