@@ -13,6 +13,13 @@ import {useState, useEffect} from "react"
 function ItemDetail ({modelo}) {
 
     const [pedido, setPedido] = useState([])
+    const [state, setState] = useState(0)
+
+    const CambiarEstado = ()=>{
+        setState(1)
+        console.log(pedido)
+    }
+    
 
     const talles = modelo.talles.filter(talle=>talle!=="")
     const suelasPNG = require.context('../multimedia/images/suelasPNG') 
@@ -51,13 +58,16 @@ function ItemDetail ({modelo}) {
                     Material: {modelo.material}
                     </p>
                     <p className="row centrar">Curva: {modelo.genero} </p>
-                
-
-                    <ul className="tallesList container">            
-                        {talles.map((talle)=><li className="row talleList "><p className="col-4 talleItemCount">{talle}</p> <ItemCount stock={10} onAdd={sumarItem} initial={0} talle={talle} /></li>)}
-                    </ul> 
-                                                      
-                <center><NavLink to="/cart"><button class="btn btn-primary">Agregar a Carrito</button></NavLink></center>
+                                   
+                    <div>
+                        
+                        <ul className="tallesList container">            
+                            {talles.map((talle)=><li className={state===0?"row talleList ":"d-none"}><p className="col-4 talleItemCount">{talle}</p> <ItemCount stock={10} onAdd={sumarItem} initial={0} talle={talle} /></li>)}
+                        </ul> 
+                        
+                        <center><button onClick={CambiarEstado} class={state===0?"btn btn-primary": "d-none"}>Agregar al Carrito</button></center>                                
+                        <center><NavLink to="/cart"><button class={state===1?"btn btn-primary": "d-none"}>Comprar</button></NavLink></center>
+                    </div>
             </div>
         </div>
     )
