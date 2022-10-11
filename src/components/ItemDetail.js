@@ -28,10 +28,27 @@ function ItemDetail ({modelo}) {
     console.log(nombreModelo)
     console.log(pedido)
     
+    let suma = 0;
+    pedido.forEach((obj)=>{
+        
+        suma = suma + obj.cantidad;
+      
+    })
     
+    console.log(suma)
+    let precio
 
-    
+    if(suma<25){
+        precio = modelo[1].precio
 
+    } else if(suma>=25 && suma<50 ){
+        precio = parseInt((modelo[1].precio)*0.95)
+    } else if (suma>=50){
+        precio = parseInt((modelo[1].precio)*0.90)
+    }
+    let total = suma*precio
+
+    console.log(precio)
     
 
     const talles = modelo[0].talles.filter(talle=>talle!=="")
@@ -39,11 +56,7 @@ function ItemDetail ({modelo}) {
     const urlImage1 = suelasPNG(`./${ nombreModelo }1.png`)
     const urlImage2 = suelasPNG(`./${ nombreModelo }2.png`)  
       
-    let totalPares   
-    let suma = pedido.forEach((e)=>{
-         totalPares = totalPares + e.cantidad
-         return totalPares
-    })
+    
     const sumarItem = (talle, cantidad) => {        
 
         
@@ -53,6 +66,7 @@ function ItemDetail ({modelo}) {
         if (pedido.find(o => o.talle === newItem.talle)) {
             const itemFind = pedido.find(o => o.talle === newItem.talle )
             itemFind.cantidad = cantidad
+            setPedido([...pedido])
             
             
 
@@ -88,10 +102,10 @@ function ItemDetail ({modelo}) {
                             {talles.map((talle)=><li className={state===0?"row talleList ":"d-none"}><p className="col-4 talleItemCount">{talle}</p> <ItemCount stock={10} onAdd={sumarItem} initial={0} talle={talle} /></li>)}
                         </ul> 
                         <center>
-                        <h3>${modelo[1].precio}</h3>
-                        <h3>${suma*modelo[1].precio}</h3>
+                        <h3>${precio}</h3>
+                        <h3>${parseInt(suma*precio)}</h3>
                         
-                        <button onClick={()=>context.addToCart(nombreModelo, pedido, setState)} className={state===0?"btn btn-primary":"d-none"}>Agregar a carrito</button>  
+                        <button onClick={()=>context.addToCart(nombreModelo, pedido, setState, total)} className={state===0?"btn btn-primary":"d-none"}>Agregar a carrito</button>  
                         <NavLink to={"/cart"}><button  className={state===1?"btn btn-primary":"d-none"}>Comprar</button></NavLink>
                         <h3 className={state===2?"":"d-none"}>Este articulo ya esta en tu carrito</h3>
                         </center>

@@ -26,7 +26,7 @@ export default function Cart (){
                             </tr>
                         </table>
                         <img src={BotonQuitar} id={item.modelo} type="button" onClick={()=>context.deleteItem(item.modelo)} className="BotonQuitar col-1" alt=""/>
-                    
+                        <h4 className="col-2">${item.total}</h4>
                     
                     
                     </li>)):<p>No hay elementos</p>}
