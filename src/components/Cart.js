@@ -8,8 +8,13 @@ export default function Cart (){
     
     let items = context.state
     console.log(items)
-
-
+    if(items.length){
+        items.forEach((obj)=>{
+            obj.curva.sort((a, b)=>{
+            return a.talle - b.talle
+            })
+        })        
+    }    
     return (
         <div className="cartContainer">
             <div className="cart container">
