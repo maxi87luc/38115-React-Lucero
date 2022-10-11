@@ -130,4 +130,26 @@
   
 }
 
+.cart {
+  background-color: #EDEDED;
+  width: 80%;
+  height: 100%;
+}
+.cartContainer {
+  width: 100%;
+  padding-top: 5%;
+  background-color: #EDEDED;
+  height: 100%;
+}
+
+.CartItem {
+  padding-top: 25px;
+  border-bottom: #3e1434 1px solid;
+}
+
+.BotonQuitar {
+  width: 4em;
+  height: 3em;
+}
+
 

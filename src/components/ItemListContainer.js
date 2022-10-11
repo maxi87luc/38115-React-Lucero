@@ -13,7 +13,7 @@ function ItemListContainer () {
             setState(value)
         })
     })
-    console.log(state)
+    
     
     
 

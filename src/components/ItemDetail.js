@@ -2,7 +2,8 @@
 import Carrousel from './Carousel';
 import ItemCount from './ItemCount';
 import {NavLink} from 'react-router-dom';
-import {useState, useEffect} from "react"
+import {useState, useContext} from "react"
+import Contexts from '../Context/Contexts'
 
 
 
@@ -12,13 +13,16 @@ import {useState, useEffect} from "react"
 
 function ItemDetail ({modelo}) {
 
+    const context = useContext(Contexts.cartContext)
+    
     const [pedido, setPedido] = useState([])
     const [state, setState] = useState(0)
+    const [nombreModelo] = useState(modelo.id)
 
-    const CambiarEstado = ()=>{
-        setState(1)
-        console.log(pedido)
-    }
+    
+
+    
+
     
 
     const talles = modelo.talles.filter(talle=>talle!=="")
@@ -32,7 +36,7 @@ function ItemDetail ({modelo}) {
 
         
         const newItem = {talle: talle, cantidad: cantidad}   
-        console.log(pedido)
+       
         
         if (pedido.find(o => o.talle === newItem.talle)) {
             const itemFind = pedido.find(o => o.talle === newItem.talle )
@@ -58,15 +62,19 @@ function ItemDetail ({modelo}) {
                     Material: {modelo.material}
                     </p>
                     <p className="row centrar">Curva: {modelo.genero} </p>
+                     
                                    
                     <div>
                         
                         <ul className="tallesList container">            
                             {talles.map((talle)=><li className={state===0?"row talleList ":"d-none"}><p className="col-4 talleItemCount">{talle}</p> <ItemCount stock={10} onAdd={sumarItem} initial={0} talle={talle} /></li>)}
                         </ul> 
+                        <button onClick={()=>context.addToCart(nombreModelo, pedido, setState)} className={state===0?"btn btn-primary":"d-none"}>Agregar a carrito</button>  
+                        <NavLink to={"/cart"}><button  className={state===1?"btn btn-primary":"d-none"}>Comprar</button></NavLink>
+                        <h3 className={state===2?"":"d-none"}>Este articulo ya esta en tu carrito</h3>
                         
-                        <center><button onClick={CambiarEstado} class={state===0?"btn btn-primary": "d-none"}>Agregar al Carrito</button></center>                                
-                        <center><NavLink to="/cart"><button class={state===1?"btn btn-primary": "d-none"}>Comprar</button></NavLink></center>
+                                                    
+                        
                     </div>
             </div>
         </div>
@@ -74,3 +82,4 @@ function ItemDetail ({modelo}) {
 }
 
 export default ItemDetail;
+

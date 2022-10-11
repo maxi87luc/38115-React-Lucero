@@ -16,13 +16,12 @@ function ItemDetailContainer () {
             setState(value)
         })
     })
-    console.log("url params "+id)
-    console.log("estado " + state)
+   
     return (
         <div className="ItemDetailContainer d-grid  ">
             {state?<ItemDetail modelo={state}/>:<NoHayElementos/>}
             
-            {/* <ItemDetail modelo={state}/>            */}
+            
             
         </div> 
     )

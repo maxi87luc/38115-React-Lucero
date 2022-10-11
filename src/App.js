@@ -5,6 +5,8 @@ import ItemListContainer from './components/ItemListContainer'
 import ItemDetailContainer from './components/ItemDetailContainer';
 import Home from './components/Home'
 import Cart from './components/Cart'
+import {useContext} from 'react'
+import CartContext from './components/CartContext'
 
 
 
@@ -15,35 +17,44 @@ function App() {
   return (
     <Router>
       
+        
+      <CartContext>  
+        <Routes>
+          <Route exact path='/'  element={
+            <>
+              <NavBar/>
+              <Home/>
+            </>
+          } />
+          <Route exact path='/category/:material/:genero' element={
+            <>
+              <NavBar/>
+              <ItemListContainer/>
+            </>
+          } />
       
-      <Routes>
-        <Route exact path='/'  element={
-          <>
-            <NavBar/>
-            <Home/>
-          </>
-        } />
-        <Route exact path='/category/:material/:genero' element={
-          <>
-            <NavBar/>
-            <ItemListContainer/>
-          </>
-        } />
-     
-        <Route exact path='/item/:id' element={
-          <>
-            <NavBar/>
-            <ItemDetailContainer/>
-          </>
-        } />
+          <Route exact path='/item/:id' element={
+            <>
+              
+                <NavBar/>
+                <ItemDetailContainer/>
+              
+            </>
+          } />
 
-        <Route exact path='/cart' element={
-          <Cart/>
-        } />
+          <Route exact path='/cart' element={
+            <>
+              
+                <NavBar/>
+                <Cart/>
+                
+            </>  
+          } />
 
-      
-          
-      </Routes>
+        
+            
+        </Routes>
+        </CartContext>
     </Router>
     
   );
