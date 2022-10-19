@@ -1,14 +1,24 @@
 import Contexts from '../Context/Contexts'
 import React, {useContext} from 'react'
 import BotonQuitar from '../multimedia/images/BotonQuitar.png'
+import { useNavigate } from 'react-router-dom'
+
+
 
 
 export default function Cart (){
     const context = useContext(Contexts.cartContext)
+    const userContext = useContext(Contexts.userContext)
+    const navigate = useNavigate()
     
+
+    
+  
+   
     let items = context.state
     let totalCarrito = 0
-    console.log(items)
+    
+    
     if(items.length){
         items.forEach((obj)=>{
             obj.curva.sort((a, b)=>{
@@ -19,7 +29,25 @@ export default function Cart (){
             totalCarrito = totalCarrito + obj.total
         } )       
     }   
-    console.log(totalCarrito) 
+    
+     
+    let compra = {buyer: userContext.user, items: context.state, date: new Date(), total: totalCarrito}
+   
+        
+    console.log(compra)
+        
+    const handleBuy = ()=>{
+        if(userContext.user.nombre!==""&&context.state.length>0){
+            context.finalizarCompra(compra, "compras")
+            context.removeList()
+            navigate("/")
+
+        } else if(context.state.length>0) {
+            navigate("/login")
+        } 
+            
+    }
+
     return (
         <div className="cartContainer">
             <div className="cart container">
@@ -44,7 +72,7 @@ export default function Cart (){
                 <div className="d-flex justify-content-between">
                     <button onClick={()=>context.removeList()} className="btn btn-secondary">Vaciar Carrito</button>
                     <h3><strong>Total: ${totalCarrito} +IVA</strong></h3>
-                    <button  className="btn btn-primary">Finalizar Compra</button>
+                    <button onClick={()=>handleBuy()} className="btn btn-primary">Finalizar Compra</button>
                    
                 </div>
             </div>
@@ -52,3 +80,4 @@ export default function Cart (){
     )
 }
 
+ 

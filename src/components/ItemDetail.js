@@ -12,9 +12,7 @@ import Contexts from '../Context/Contexts'
 
 
 function ItemDetail ({modelo}) {
-    console.log(modelo[0])
-    console.log(modelo[1])
-
+    
     
 
    
@@ -25,8 +23,7 @@ function ItemDetail ({modelo}) {
     const [state, setState] = useState(0)
     const [nombreModelo] = useState(modelo[0].id)
 
-    console.log(nombreModelo)
-    console.log(pedido)
+    
     
     let suma = 0;
     pedido.forEach((obj)=>{
@@ -48,7 +45,7 @@ function ItemDetail ({modelo}) {
     }
     let total = suma*precio
 
-    console.log(precio)
+    
     
 
     const talles = modelo[0].talles.filter(talle=>talle!=="")

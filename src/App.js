@@ -7,6 +7,8 @@ import Home from './components/Home'
 import Cart from './components/Cart'
 import {useContext} from 'react'
 import CartContext from './components/CartContext'
+import UserContext from './components/UserContext'
+import LogIn from './components/LogIn'
 
 
 
@@ -16,8 +18,9 @@ function App() {
   
   return (
     <Router>
+
       
-        
+      <UserContext>  
       <CartContext>  
         <Routes>
           <Route exact path='/'  element={
@@ -51,10 +54,21 @@ function App() {
             </>  
           } />
 
+          <Route exact path='/login' element={
+            <>
+              
+                <NavBar/>
+                <LogIn/>
+                
+            </>  
+          } />
+
         
             
         </Routes>
         </CartContext>
+        </UserContext> 
+
     </Router>
     
   );

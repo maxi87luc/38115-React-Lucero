@@ -1,8 +1,31 @@
 import logo from '../multimedia/images/IDS-LOGO.png';
 import CartWidget from './CartWidget'
 import {NavLink} from 'react-router-dom'
+import Contexts from '../Context/Contexts'
+import {useState, useContext, useEffect} from "react"
+import {getCollection} from '../utils/Firebase'
+import {collection, getDocs} from 'firebase/firestore'
 
 function NavBar () {
+
+    const [categories, setCategories] = useState([])
+
+    useEffect(() => {
+        console.log("Este es el useEffect")
+        getCollection('categories')
+        .then((value)=>{
+            console.log(value.data)    
+          setCategories(value.docs.map((value)=>{
+            return value.data()
+          }))
+        })
+       
+      }, [])
+
+      console.log(categories)
+
+    const context = useContext(Contexts.userContext)
+    console.log(context.user.nombre)
     return (
         <div>          
             <nav className="navbarStandard navBar navbar-expand-lg">
@@ -42,6 +65,12 @@ function NavBar () {
                             </li>
                             
                         </ul>
+                        
+                                                  
+                        {context.user.nombre?<div><p>¡Hola {context.user.nombre}!</p></div>:<NavLink to={`/login`} ><button className="btn btn-Primary">LogIn</button></NavLink>}
+                              
+                            
+                        
                         <NavLink to="/cart"><CartWidget /></NavLink>
                        
                     

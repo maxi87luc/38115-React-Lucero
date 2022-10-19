@@ -1,5 +1,7 @@
 import React, {useState} from 'react'
 import Contexts from '../Context/Contexts'
+import {useNavigate} from 'react-router-dom'
+import { addSingleDoc } from '../utils/Firebase'
 
 export default function CartContext({children}){
     const [state, setState] = useState([])
@@ -29,8 +31,15 @@ export default function CartContext({children}){
         console.log(state)
     }
 
+    const finalizarCompra = (compra, coleccion)=>{
+        addSingleDoc(compra, coleccion)
+    }
+
+  
+    
+
     return (
-        <Contexts.cartContext.Provider value={{state, addToCart, deleteItem, removeList}}>
+        <Contexts.cartContext.Provider value={{state, addToCart, deleteItem, removeList, finalizarCompra}}>
             {children}
         </Contexts.cartContext.Provider>
     )

@@ -6,6 +6,7 @@ import ItemDetail from './ItemDetail';
 import NoHayElementos from './NoHayElementos';
 import fetchPriceData from '../data/precios';
 
+
 function ItemDetailContainer () {
    
     const [state, setState] = useState()
@@ -16,9 +17,14 @@ function ItemDetailContainer () {
     console.log(id)
     
     useEffect(()=>{
+
+
+
+
         fetchItemData(id).then((value)=>{ 
-            setState(value);        
-           
+            setState(value);    
+            console.log(value)    
+            
 
 
         })

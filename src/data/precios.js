@@ -278,7 +278,7 @@ function fetchPriceData(id){
 
         if(id){
             setTimeout(()=>{
-                resolve(precios.find(modelo => modelo.modelo=== id))
+                resolve(precios)
             }, 2000);
             ;
 
