@@ -1,10 +1,10 @@
 import ItemList from './ItemList'
-import {items} from '../data/items'
+
 
 import {useState , useEffect} from 'react'
 import NoHayElementos from './NoHayElementos';
 import { useParams } from 'react-router-dom';
-import { filterCollection , addSingleDoc} from '../utils/Firebase'
+import { filterCollection} from '../utils/Firebase'
 
 function ItemListContainer () {
     let {material, genero} = useParams();

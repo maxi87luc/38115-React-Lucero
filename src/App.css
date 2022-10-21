@@ -12,6 +12,32 @@
   z-index: +1;
 }
 
+.NavBarName {
+  padding: 20px;
+}
+
+.cartLogo {
+  margin-right: 15px;
+}
+
+
+
+.cartCount {
+  border:#3e1434 1px solid;
+  font-size: 0.8rem;
+  text-decoration: none;
+  background-color: #3e1434;
+  width: 22px;
+  height: 22px;
+  text-align: center;
+  border-radius: 50%;
+  color: #EDEDED;
+  position: relative;
+  left: 58px;
+  top:5px;
+
+}
+
 .dropdown-toggle {
   margin: 10px;
 }
@@ -134,17 +160,25 @@
   background-color: #EDEDED;
   width: 80%;
   height: 100%;
+  
 }
 .cartContainer {
   width: 100%;
   padding-top: 5%;
   background-color: #EDEDED;
   height: 100%;
+  
+}
+
+.cartContainer button {
+  margin-bottom: 15%;
+
 }
 
 .CartItem {
   padding-top: 25px;
   border-bottom: #3e1434 1px solid;
+  
 }
 
 .BotonQuitar {
@@ -152,8 +186,22 @@
   height: 3em;
 }
 
+.LogInForm {
+  background-color: #EDEDED;
+}
+
 .formulario {
   margin-top: 10%;
 }
+
+.LogInForm .container {
+  width: 500px;
+}
+
+.LogInForm .container button {
+  margin-top: 5%;
+  margin-bottom: 35%;
+}
+
 
 

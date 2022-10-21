@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
 import Contexts from '../Context/Contexts'
-import {useNavigate} from 'react-router-dom'
+
 import { addSingleDoc } from '../utils/Firebase'
 
 export default function CartContext({children}){

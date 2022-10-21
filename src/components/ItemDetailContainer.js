@@ -1,10 +1,9 @@
 
-import {fetchItemData} from '../data/items';
+
 import {useState , useEffect} from 'react';
 import { useParams } from 'react-router-dom';
 import ItemDetail from './ItemDetail';
 import NoHayElementos from './NoHayElementos';
-import fetchPriceData from '../data/precios';
 import {filterCollection} from '../utils/Firebase';
 
 

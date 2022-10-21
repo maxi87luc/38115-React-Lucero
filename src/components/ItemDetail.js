@@ -102,8 +102,8 @@ function ItemDetail ({modelo}) {
                         <h3>${precio}</h3>
                         <h3>${parseInt(suma*precio)}</h3>
                         
-                        <button onClick={()=>context.addToCart(nombreModelo, pedido, setState, total)} className={state===0?"btn btn-primary":"d-none"}>Agregar a carrito</button>  
-                        <NavLink to={"/cart"}><button  className={state===1?"btn btn-primary":"d-none"}>Comprar</button></NavLink>
+                        <button onClick={()=>suma>0&&context.addToCart(nombreModelo, pedido, setState, total)} className={state===0?"btn btn-primary":"d-none"}>Agregar a carrito</button>  
+                        <NavLink to={"/cart"}><button  className={state===1?"btn btn-primary":"d-none"}>Ir al Carrito</button></NavLink>
                         <h3 className={state===2?"":"d-none"}>Este articulo ya esta en tu carrito</h3>
                         </center>
                                                     

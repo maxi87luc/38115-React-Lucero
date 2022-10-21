@@ -1,7 +1,7 @@
 import { getFirestore, collection, addDoc, getDocs, doc, getDoc, query, where } from "firebase/firestore";
 import Contexts from '../Context/Contexts'
 const db = ()=> getFirestore()
-const cartContext = Contexts.cartContext
+
 
 export function getCollection(name="") {
     const data = collection(db(),name)

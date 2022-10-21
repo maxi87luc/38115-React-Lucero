@@ -1,6 +1,10 @@
 import {useState, useEffect , useContext} from "react"
 import Contexts from '../Context/Contexts'
 import { useNavigate } from "react-router-dom"
+// ES6 Modules or TypeScript
+import Swal from 'sweetalert2'
+
+
 
 
 function FormCompra (){
@@ -25,7 +29,7 @@ function FormCompra (){
 
 
     return (
-        <div>
+        <div className="LogInForm">
             <div className="d-grid container">
                 <center>
                 <form className="formulario" onSubmit={(e)=>{
@@ -36,10 +40,19 @@ function FormCompra (){
                         console.log(e.target[2].value)
 
 
-                        setNombre(e.target[0].value)
-                        setTelefono(e.target[1].value)
-                        setEmail(e.target[2].value)
                         
+                        if(e.target[2].value===e.target[3].value){
+                            setNombre(e.target[0].value)
+                            setTelefono(e.target[1].value)
+                            setEmail(e.target[2].value)
+                        } else {
+                            Swal.fire({
+                                title: 'Error!',
+                                text: 'El e-mail ingresado no coincide',
+                                icon: 'error',
+                                confirmButtonText: 'Cool'
+                              })
+                        }
                         
                          
 
@@ -62,6 +75,12 @@ function FormCompra (){
                     <div className="row container">
                         <label className="row">
                             E-mail
+                        </label>
+                        <input className="row"  name="email"/>
+                    </div>
+                    <div className="row container">
+                        <label className="row">
+                            Confirmar E-mail
                         </label>
                         <input className="row"  name="email"/>
                     </div>

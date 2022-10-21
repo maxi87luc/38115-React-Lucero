@@ -5,7 +5,6 @@ import ItemListContainer from './components/ItemListContainer'
 import ItemDetailContainer from './components/ItemDetailContainer';
 import Home from './components/Home'
 import Cart from './components/Cart'
-import {useContext} from 'react'
 import CartContext from './components/CartContext'
 import UserContext from './components/UserContext'
 import LogIn from './components/LogIn'
