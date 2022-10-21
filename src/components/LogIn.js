@@ -64,25 +64,25 @@ function FormCompra (){
                         <label className="row">
                             Nombre
                         </label>
-                        <input className="row" type="text" name="nombre"/>
+                        <input className="row" type="text" name="nombre" required/>
                     </div>
                     <div className="row container">
                         <label className="row">
                             Telefono
                         </label>
-                        <input className="row" type="number" name="phone"/>
+                        <input className="row" type="number" name="phone" required/>
                     </div>
                     <div className="row container">
                         <label className="row">
                             E-mail
                         </label>
-                        <input className="row"  name="email"/>
+                        <input className="row" type="eMail" name="email" required/>
                     </div>
                     <div className="row container">
                         <label className="row">
                             Confirmar E-mail
                         </label>
-                        <input className="row"  name="email"/>
+                        <input className="row" type="eMail" name="email" required />
                     </div>
                     <button type="submit"  className="btn btn-primary">Submit</button>
                     

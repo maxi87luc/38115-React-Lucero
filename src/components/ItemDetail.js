@@ -65,14 +65,15 @@ function ItemDetail ({modelo}) {
             itemFind.cantidad = cantidad
             setPedido([...pedido])
             
-            
 
             
         } else {
             setPedido([...pedido, newItem])
             
+            
         }
     } 
+   
 
     
 
@@ -85,10 +86,10 @@ function ItemDetail ({modelo}) {
                 
                     <h2 className="row centrar">{modelo.id}</h2>  
                            
-                    <p className="row centrar">                  
+                    <p className={state===0?"row centrar":"d-none"}>                  
                         Material: {modelo.material}
                     </p>
-                    <p className="row centrar">Curva: {modelo.genero} </p>
+                    <p className={state===0?"row centrar":"d-none"}>Curva: {modelo.genero} </p>
                      
                     
                     
@@ -99,7 +100,26 @@ function ItemDetail ({modelo}) {
                             {talles.map((talle)=><li className={state===0?"row talleList ":"d-none"}><p className="col-4 talleItemCount">{talle}</p> <ItemCount stock={10} onAdd={sumarItem} initial={0} talle={talle} /></li>)}
                         </ul> 
                         <center>
-                        <h3>${precio}</h3>
+
+                        {/* tabla de pedido final */}
+                        <center>    
+                            <div className={state===1?"":"d-none"}>
+                                <h3 className="col-3">{nombreModelo}</h3>
+                                <table className="col-6">
+                                    <tr>
+                                        {pedido.map((talle)=> <td><strong>{talle.talle}</strong></td>)}
+                                    </tr>
+                                    <tr>
+                                        {pedido.map((talle)=> <td>{talle.cantidad}</td>)}
+                                    </tr>
+                                </table>
+                            </div>
+
+                        </center>
+                        
+                      
+                        
+                        <h3 className={state===0?"":"d-none"}>${precio}</h3>
                         <h3>${parseInt(suma*precio)}</h3>
                         
                         <button onClick={()=>suma>0&&context.addToCart(nombreModelo, pedido, setState, total)} className={state===0?"btn btn-primary":"d-none"}>Agregar a carrito</button>  

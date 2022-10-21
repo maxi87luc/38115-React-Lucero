@@ -2,7 +2,8 @@ import Contexts from '../Context/Contexts'
 import React, {useContext} from 'react'
 import BotonQuitar from '../multimedia/images/BotonQuitar.png'
 import { useNavigate } from 'react-router-dom'
-
+// ES6 Modules or TypeScript
+import Swal from 'sweetalert2'
 
 
 
@@ -41,6 +42,13 @@ export default function Cart (){
             context.finalizarCompra(compra, "compras")
             context.removeList()
             navigate("/")
+            Swal.fire({
+                title: 'Gracias por su compra',
+                text: 'recibirá un e-mail con la factura',
+                icon: 'success',
+                confirmButtonText: 'Cool'
+              })
+
 
         } else if(context.state.length>0) {
             navigate("/login")
