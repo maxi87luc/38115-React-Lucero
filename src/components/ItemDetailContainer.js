@@ -5,6 +5,7 @@ import { useParams } from 'react-router-dom';
 import ItemDetail from './ItemDetail';
 import NoHayElementos from './NoHayElementos';
 import fetchPriceData from '../data/precios';
+import {filterCollection} from '../utils/Firebase';
 
 
 function ItemDetailContainer () {
@@ -14,27 +15,31 @@ function ItemDetailContainer () {
     
 
     const {id} = useParams()
-    console.log(id)
     
     useEffect(()=>{
-
-
-
-
-        fetchItemData(id).then((value)=>{ 
-            setState(value);    
-            console.log(value)    
+        const priceRes = filterCollection("precios",["modelo","==",id , "modelo","==",id])
+        priceRes.then((res)=>{
+            
+            const arr = res.docs.map((value)=>value.data())
+            console.log(arr[0])
+            setPrice(arr[0]);
+        })  
+      
+        const res = filterCollection("items",["id","==",id, "id","==",id])
+        res.then((res)=>{
+            
+            const arr = res.docs.map((value)=>value.data())
+            console.log(arr[0])
+            setState(arr[0]);
+        })
+     
+       
             
 
 
-        })
-        fetchPriceData(id).then((value)=>{ 
-            setPrice(value)
-                
-            })
-        console.log("antes de pricedata: "+ state)
         
-    })
+        
+    },[])
    
     console.log(state)
     console.log(price)

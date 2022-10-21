@@ -37,7 +37,7 @@ export default function Cart (){
     console.log(compra)
         
     const handleBuy = ()=>{
-        if(userContext.user.nombre!==""&&context.state.length>0){
+        if(userContext.user.nombre&&context.state.length>0){
             context.finalizarCompra(compra, "compras")
             context.removeList()
             navigate("/")

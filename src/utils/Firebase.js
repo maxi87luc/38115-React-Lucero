@@ -14,7 +14,7 @@ export function getSingleDoc(collection="", id="") {
 }
 
 export function filterCollection(name="",condition=["","","","","","",""]) {
-    const data = query(collection(db(), name),where(condition[0],condition[1],condition[2]))
+    const data = query(collection(db(), name),where(condition[0],condition[1],condition[2]), where(condition[3], condition[4], condition[5]))
     return getDocs(data)
 }
 

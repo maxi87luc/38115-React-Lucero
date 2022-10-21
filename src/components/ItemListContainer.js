@@ -1,22 +1,28 @@
 import ItemList from './ItemList'
+import {items} from '../data/items'
 
 import {useState , useEffect} from 'react'
 import NoHayElementos from './NoHayElementos';
 import { useParams } from 'react-router-dom';
-import { filterCollection } from '../utils/Firebase'
+import { filterCollection , addSingleDoc} from '../utils/Firebase'
 
 function ItemListContainer () {
     let {material, genero} = useParams();
 
+
     const [state, setState] = useState([])
     useEffect(()=>{
-        const res = filterCollection("items",["material","==",material,"&&", "genero","==",genero])
+        const res = filterCollection("items",["material","==",material, "genero","==",genero])
         res.then((res)=>{
             console.log(res)
+            console.log(material + " " + genero)
             setState(res.docs.map((value)=>value.data()));
         })
         
-    })
+        
+        
+        
+    },[ material, genero])
     
    
     
