@@ -2,14 +2,14 @@ import logo from '../multimedia/images/IDS-LOGO.png';
 import CartWidget from './CartWidget'
 import {NavLink} from 'react-router-dom'
 import Contexts from '../Context/Contexts'
-import {useState, useContext} from "react"
+import {useContext} from "react"
 
 
 
 
 function NavBar () {
 
-    const [categories, setCategories] = useState([])
+    
 
   
 
@@ -58,7 +58,7 @@ function NavBar () {
                         <div className="NavBarName">                          
                             {context.user.nombre?<div><p>¡Hola {context.user.nombre}!</p></div>:<NavLink to={`/login`} ><button className="btn btn-Primary">LogIn</button></NavLink>}
                         </div>      
-                        {/* <BotonLogIn nombre={context.user.nombre}/> */}
+                        
                             
                         
                         <NavLink to="/cart"><CartWidget /></NavLink>
