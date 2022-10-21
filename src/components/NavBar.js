@@ -2,8 +2,9 @@ import logo from '../multimedia/images/IDS-LOGO.png';
 import CartWidget from './CartWidget'
 import {NavLink} from 'react-router-dom'
 import Contexts from '../Context/Contexts'
-import {useState, useContext, useEffect} from "react"
-import {getCollection} from '../utils/Firebase'
+import {useState, useContext} from "react"
+
+
 
 
 function NavBar () {
@@ -57,6 +58,7 @@ function NavBar () {
                         <div className="NavBarName">                          
                             {context.user.nombre?<div><p>¡Hola {context.user.nombre}!</p></div>:<NavLink to={`/login`} ><button className="btn btn-Primary">LogIn</button></NavLink>}
                         </div>      
+                        {/* <BotonLogIn nombre={context.user.nombre}/> */}
                             
                         
                         <NavLink to="/cart"><CartWidget /></NavLink>
@@ -70,6 +72,7 @@ function NavBar () {
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
+                    <img src={logo} className="logo" alt="logo" /> 
                     <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
                             
                             <ul className="navbar-nav me-auto mb-2 mb-lg-0">       
@@ -102,13 +105,17 @@ function NavBar () {
                             </li>
                             
                         </ul>
+                        <div className="NavBarName">                          
+                            {context.user.nombre?<div><p>¡Hola {context.user.nombre}!</p></div>:<NavLink to={`/login`} ><button className="btn btn-Primary">LogIn</button></NavLink>}
+                        </div>  
                      
                         
                     </div>
                     
                      
-                    <img src={logo} className="logo" alt="logo" /> 
-                        
+                   
+
+                                                
                     
                     <CartWidget/>
                     
