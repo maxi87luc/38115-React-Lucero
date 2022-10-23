@@ -2,7 +2,7 @@
 import Carrousel from './Carousel';
 import ItemCount from './ItemCount';
 import {NavLink} from 'react-router-dom';
-import {useState, useContext} from "react"
+import {useState, useContext, useEffect} from "react"
 import Contexts from '../Context/Contexts'
 
 
@@ -16,13 +16,15 @@ function ItemDetail ({modelo}) {
     
 
    
-
+    console.log(modelo)
     const context = useContext(Contexts.cartContext)
     
     const [pedido, setPedido] = useState([])
     const [state, setState] = useState(0)
     const [nombreModelo] = useState(modelo[0].id)
+    const [stock] = useState(modelo[2].curva)
 
+    console.log(stock)
     
     
     let suma = 0;
@@ -52,6 +54,12 @@ function ItemDetail ({modelo}) {
     const suelasPNG = require.context('../multimedia/images/suelasPNG') 
     const urlImage1 = suelasPNG(`./${ nombreModelo }1.png`)
     const urlImage2 = suelasPNG(`./${ nombreModelo }2.png`)  
+
+    
+
+    
+
+
       
     
     const sumarItem = (talle, cantidad) => {        
@@ -73,8 +81,11 @@ function ItemDetail ({modelo}) {
             
         }
     } 
-   
 
+    const cargarStock = (talle)=>{
+        const stockTalle = stock.find((o)=>o.talle === parseInt(talle))
+        return stockTalle.cantidad
+    }
     
 
     return (
@@ -97,7 +108,7 @@ function ItemDetail ({modelo}) {
                     <div>
                         
                         <ul className="tallesList container">            
-                            {talles.map((talle)=><li className={state===0?"row talleList ":"d-none"}><p className="col-4 talleItemCount">{talle}</p> <ItemCount stock={10} onAdd={sumarItem} initial={0} talle={talle} /></li>)}
+                            {talles.map((talle)=><li className={state===0?"row talleList ":"d-none"}><p className="col-4 talleItemCount">{talle}</p> <ItemCount stock={cargarStock(talle)} onAdd={sumarItem} initial={0} talle={talle} /></li>)}
                         </ul> 
                         <center>
 

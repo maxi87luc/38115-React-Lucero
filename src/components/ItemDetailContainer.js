@@ -11,6 +11,7 @@ function ItemDetailContainer () {
    
     const [state, setState] = useState()
     const [price, setPrice] = useState()
+    const [stock, setStock] = useState()
     
 
     const {id} = useParams()
@@ -31,6 +32,15 @@ function ItemDetailContainer () {
             console.log(arr[0])
             setState(arr[0]);
         })
+
+        
+        const stockRes = filterCollection("stock",["modelo","==",id, "modelo","==",id])
+        stockRes.then((res)=>{
+ 
+            const arr = res.docs.map((value)=>value.data())
+            console.log(arr[0])
+            setStock(arr[0]);
+        })
      
        
             
@@ -39,14 +49,17 @@ function ItemDetailContainer () {
         
         
     },[])
+
+
    
     console.log(state)
     console.log(price)
+    console.log(stock)
     
    
     return (
         <div className="ItemDetailContainer d-grid  ">
-            {state?<ItemDetail modelo={[state,price]}/>:<NoHayElementos/>}          
+            {state?<ItemDetail modelo={[state,price,stock]}/>:<NoHayElementos/>}       
             
             
         </div> 
