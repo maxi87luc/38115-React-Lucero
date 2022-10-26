@@ -19,8 +19,7 @@ function ItemListContainer () {
     useEffect(()=>{
         const res = filterCollection("items",["material","==",material, "genero","==",genero])
         res.then((res)=>{
-            console.log(res)
-            console.log(material + " " + genero)
+            
             setState(res.docs.map((value)=>value.data()));
         })
 

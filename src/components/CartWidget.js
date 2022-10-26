@@ -6,7 +6,7 @@ function CartWidget () {
     
     const context = useContext(Contexts.cartContext)
     const items = context.state
-    console.log(items)
+    
     return (
         <div className="cartLogo d-flex">
                 {items.length>0&&<p className="cartCount"><strong>{items.length}</strong></p>}  

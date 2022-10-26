@@ -16,7 +16,7 @@ function ItemDetail ({modelo}) {
     
 
    
-    console.log(modelo)
+    
     const context = useContext(Contexts.cartContext)
     
     const [pedido, setPedido] = useState([])
@@ -24,7 +24,7 @@ function ItemDetail ({modelo}) {
     const [nombreModelo] = useState(modelo[0].id)
     const [stock] = useState(modelo[2].curva)
 
-    console.log(stock)
+   
     
     
     let suma = 0;
@@ -34,7 +34,7 @@ function ItemDetail ({modelo}) {
       
     })
     
-    console.log(suma)
+    
     let precio
 
     if(suma<25){

@@ -21,26 +21,28 @@ function ItemDetailContainer () {
         priceRes.then((res)=>{
             
             const arr = res.docs.map((value)=>value.data())
-            console.log(arr[0])
+            
             setPrice(arr[0]);
         })  
+
+        const stockRes = filterCollection("stock",["modelo","==",id, "modelo","==",id])
+        stockRes.then((res)=>{
+ 
+            const arr = res.docs.map((value)=>value.data())
+           
+            setStock(arr[0]);
+        })
       
         const res = filterCollection("items",["id","==",id, "id","==",id])
         res.then((res)=>{
             
             const arr = res.docs.map((value)=>value.data())
-            console.log(arr[0])
+            
             setState(arr[0]);
         })
 
         
-        const stockRes = filterCollection("stock",["modelo","==",id, "modelo","==",id])
-        stockRes.then((res)=>{
- 
-            const arr = res.docs.map((value)=>value.data())
-            console.log(arr[0])
-            setStock(arr[0]);
-        })
+        
      
        
             
@@ -52,16 +54,11 @@ function ItemDetailContainer () {
 
 
    
-    console.log(state)
-    console.log(price)
-    console.log(stock)
     
    
     return (
         <div className="ItemDetailContainer d-grid  ">
-            {state?<ItemDetail modelo={[state,price,stock]}/>:<NoHayElementos/>}       
-            
-            
+            {state?<ItemDetail modelo={[state,price,stock]}/>:<NoHayElementos/>}              
         </div> 
     )
 }

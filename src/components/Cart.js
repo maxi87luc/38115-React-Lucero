@@ -2,8 +2,11 @@ import Contexts from '../Context/Contexts'
 import React, {useContext} from 'react'
 import BotonQuitar from '../multimedia/images/BotonQuitar.png'
 import { useNavigate } from 'react-router-dom'
+import {filterCollection, addSingleDoc, getSingleDoc, updateCurva} from '../utils/Firebase';
+
 // ES6 Modules or TypeScript
 import Swal from 'sweetalert2'
+
 
 
 
@@ -35,11 +38,13 @@ export default function Cart (){
     let compra = {buyer: userContext.user, items: context.state, date: new Date(), total: totalCarrito}
    
         
-    console.log(compra)
+
         
     const handleBuy = ()=>{
         if(userContext.user.nombre&&context.state.length>0){
             context.finalizarCompra(compra, "compras")
+            
+            restarStock(compra.items)
             context.removeList()
             navigate("/")
             Swal.fire({
@@ -55,6 +60,55 @@ export default function Cart (){
         } 
             
     }
+
+    const restarStock = (compra)=>{
+        
+        compra.forEach((item)=>{
+            let docId = filterCollection('stock', ["modelo","==",item.modelo, "modelo","==",item.modelo])
+            docId.then((res)=>{
+ 
+                const id = res.docs.map((value)=>value.id)
+                
+                
+                let stock = getSingleDoc('stock', id[0])
+                let nuevoStockModelo = []
+                stock.then((res)=>{
+                    const curvaStock = res.data().curva
+                   
+                    item.curva.forEach((talle)=>{
+                        
+                        const talleStock = curvaStock.find((o)=> o.talle == talle.talle )
+                        
+                        nuevoStockModelo = [...nuevoStockModelo, {talle:  parseInt(talle.talle), cantidad: (talleStock.cantidad - talle.cantidad).toString()} ]
+                        
+                        
+                        
+                    })
+                    curvaStock.forEach((talle)=>{
+                        if (nuevoStockModelo.findIndex(o => o.talle == talle.talle)<0){
+                            nuevoStockModelo = [...nuevoStockModelo, { talle: talle.talle, cantidad: talle.cantidad}]
+                        } 
+                    })
+                
+
+
+                   
+                    updateCurva('stock', id[0], nuevoStockModelo)
+                    
+                    
+                })
+                
+
+                
+
+                
+            })
+            
+
+        })
+
+    }
+    
 
     return (
         <div className="cartContainer">

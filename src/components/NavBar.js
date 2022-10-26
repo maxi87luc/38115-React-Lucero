@@ -14,7 +14,7 @@ function NavBar () {
   
 
     const context = useContext(Contexts.userContext)
-    console.log(context.user.nombre)
+    
     return (
         <div>          
             <nav className="navbarStandard navBar navbar-expand-lg">

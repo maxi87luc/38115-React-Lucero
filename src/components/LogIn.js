@@ -35,9 +35,7 @@ function FormCompra (){
                 <form className="formulario" onSubmit={(e)=>{
                         e.preventDefault();
                         
-                        console.log(e.target[0].value)
-                        console.log(e.target[1].value)
-                        console.log(e.target[2].value)
+                       
 
 
                         
